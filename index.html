@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Increment Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 56vh;
+            margin: 0;
+            background-color: #616291;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .coin-count {
+            font-size: 4em;
+            margin-bottom: 23px;
+        }
+        .coin-button {
+            background-color: #ffd700;
+            border: none;
+            border-radius: 100%;
+            width: 400px;
+            height: 400px;
+            font-size: 2em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(0, 255, 208, 0.2);
+        }
+        .coin-button:active {
+            box-shadow: 0 0 5px rgba(255, 0, 228, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="coin-count">Your Coins: <span id="coinCount">0M</span></div>
+        <button id="coinButton" class="coin-button">💰</button>
+    </div>
+
+    <script>
+        let coinCount = 0;
+        const coinDisplay = document.getElementById('coinCount');
+        const coinButton = document.getElementById('coinButton');
+
+        function updateCoinDisplay() {
+            coinDisplay.textContent = `${coinCount}M`;
+        }
+
+        coinButton.addEventListener('click', () => {
+            coinCount += 8;
+            updateCoinDisplay();
+        });
+    </script>
+</body>
+</html>
